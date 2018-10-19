@@ -41,7 +41,9 @@ Page({
     api.getLatest((res) => {
       console.log('收到', res)
       this.setData({
-        classicData: res
+        classicData: {...res},
+        first: api.isFirst(res.index),
+        last: api.isLatest(res.index)
       })
     });
   },
@@ -51,7 +53,7 @@ Page({
     api.getPrevious(this.data.classicData.index, (res) => {
       console.log(res)
       this.setData({
-        classicData: res,
+        classicData: {...res},
         first: api.isFirst(res.index),
         last: api.isLatest(res.index)
       })
@@ -63,7 +65,7 @@ Page({
     api.getnext(this.data.classicData.index, (res) => {
       console.log(res)
       this.setData({
-        classicData: res,
+        classicData: {...res},
         first: api.isFirst(res.index),
         last: api.isLatest(res.index)
       })

@@ -4,8 +4,9 @@
     <o-episode index='8'  class='episode' />
     <o-like count='{{classicData.fav_nums}}' islike='{{classicData.like_status}}' bind:onlike='onlike'  ></o-like>
   </view>
-  
-  <o-movie img='{{classicData.image}}' content='{{classicData.content}}' />
+  <o-movie wx:if='{{classicData.type===100}}' img='{{classicData.image}}' content='{{classicData.content}}' />
+  <o-juzi wx:elif='{{classicData.type===300}}' img='{{classicData.image}}' content='{{classicData.content}}' />
+  <o-music wx:else img='{{classicData.image}}' content='{{classicData.content}}' src="{{classicData.url}}" />
   <o-nav title='{{classicData.title}}' last='{{last}}' first='{{first}}' class='nav' bind:left='onLeft' bind:right='onRight'  />
 </view>
 

@@ -1,7 +1,9 @@
 <!--components/classic/music/music.wxml-->
-<view>
-  <image src='{{img}}'></image>
-  <image src='{{isPlay?"./images/player@playing":"player@waitting.png"}}' ></image>
-  <image src='./images/music@tag.png' ></image>
-  <text>{{content}}</text>
+<view class="classic-container">
+  <image src='{{img||"cloud://demo-6c212a.6465-demo-6c212a/demo.png"}}' class="classic-img {{isPlay?'rotation':'rotation pass'}}"></image>
+  <image src='{{isPlay?"./images/player@playing.png":"./images/player@waitting.png"}}' class="player-img" bind:tap = "onPlay" ></image>
+  <image src='./images/music@tag.png'  class='tag'></image>
+  <text class="content">{{content||'duet'}}</text>
 </view>
+
+<!-- 旧版使用 audio 标签播放音频 ，，，新版使用wx.backgropundAudioManager 播放音乐。。。新版更强大 -->

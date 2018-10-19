@@ -64,6 +64,7 @@ class Classic extends HTTP{
       let latestIndex  = wx.getStorageSync('latest')
       return latestIndex
     }
+    // 7.利用缓存系统优化
 }
 
 // export { Classic} // 这样写太麻烦了 引入的页面还得实例化才能用

@@ -2,7 +2,10 @@
   "usingComponents":{
     "o-like":"/components/like/like",
     "o-movie": "/components/classic/movie/movie",
+    "o-music": "/components/classic/music/music",
+    "o-juzi": "/components/classic/juzi/juzi",
     "o-episode": "/components/episode/episode",
     "o-nav":"/components/nav/nav"
+
   }
 }
