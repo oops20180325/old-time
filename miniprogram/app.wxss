@@ -1,0 +1,15 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  /* background-color: pink; */
+} 
+
+/*  page 指的是页面而不是组件。可以在控制台看到小程序给所有页面都会添加一个 page标签 */
+page {
+  font-family: '微软雅黑';
+  font-size: 32rpx;
+  height: 100%;
+}
