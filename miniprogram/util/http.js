@@ -19,7 +19,7 @@ class HTTP {
         appkey: apiConfig.appKey
       },
       data:params.data,
-      method:params.method,
+      method:params.method||'GET',
       dataType:'json',
       success(res){
         let code = res.statusCode + '';

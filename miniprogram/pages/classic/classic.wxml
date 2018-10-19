@@ -1,7 +1,7 @@
 <!--miniprogram/pages/classic/classic.wxml-->
 <view class='container'>
   <view class='head'>
-    <o-episode index='8' />
+    <o-episode index='8'  class='episode' />
     <o-like count='{{classicData.fav_nums}}' islike='{{classicData.like_status}}' bind:onlike='onlike'  ></o-like>
   </view>
   

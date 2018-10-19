@@ -22,9 +22,16 @@ Component({
    */
   methods: {
     onLeft() {
+      // 是否是最新
+      if (this.properties.last){
+        return
+      }
       this.triggerEvent('left', 'left', {})
     },
     onRight() {
+      if(this.properties.first){
+        return
+      }
       this.triggerEvent('right', 'right', {})
     }
   },

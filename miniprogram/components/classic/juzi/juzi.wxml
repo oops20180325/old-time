@@ -1,0 +1,6 @@
+<!--components/classic/juzi/juzi.wxml-->
+<view class="classic-container">
+  <image src='{{img}}' class='classic-img'></image>
+  <image src='./image/essay@tag.png' class='tag'></image>
+  <text class='content'>{{content}}</text>
+</view>

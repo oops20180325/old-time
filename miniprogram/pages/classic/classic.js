@@ -11,7 +11,8 @@ Page({
    */
   data: {
     classicData:null,
-    first:true,
+    first:false,
+    last:false,
       },
   // 自定义函数
   onlike(e){
@@ -44,13 +45,29 @@ Page({
       })
     });
   },
-  // right handler
+  // shang期
   onRight(data){
     console.log(data)
+    api.getPrevious(this.data.classicData.index, (res) => {
+      console.log(res)
+      this.setData({
+        classicData: res,
+        first: api.isFirst(res.index),
+        last: api.isLatest(res.index)
+      })
+    })
   },
-  // left handler
+  // xia期
   onLeft(data){
-    console.log(data)
+    // console.log(data)
+    api.getnext(this.data.classicData.index, (res) => {
+      console.log(res)
+      this.setData({
+        classicData: res,
+        first: api.isFirst(res.index),
+        last: api.isLatest(res.index)
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
