@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "o-tag": "/components/tag/tag",
+    "o-like": "/components/like/like"
+  }
+}
