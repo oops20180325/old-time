@@ -1,0 +1,21 @@
+
+// 把双斜杠通过正则转化成单斜杠
+var format = function (text) {
+  if (!text) {
+    return
+  }
+  var reg = getRegExp('\\\\n', 'g')
+  return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+}
+
+var limit = function (array, length) {
+  return array.slice(0, length)
+}
+
+// wxs 只是在语法形式上和js很像 但并不是js（wxs也不能用es6）
+
+// commonJS 规范输出
+module.exports = {
+  format: format,
+  limit: limit
+}

@@ -1,5 +1,5 @@
 <!--miniprogram/pages/book-detail/book-detail.wxml-->
-
+<wxs src="../../util/filter.wxs" module="util" />
 <view class="container">
     <view class="head">
         <image src="{{book.image}}"></image>
@@ -10,8 +10,8 @@
         <text class="headline">短评</text>
          <text class="shadow" wx:if="{{comments==false}}">还没有短评</text>
         <view class="comment-container">
-            <block wx:for="{{comments}}" wx:key="content">
-                <o-tag tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+            <block wx:for="{{util.limit(comments,4)}}" wx:key="content">
+                <o-tag tag-class="democlass" text="{{item.content}}">
                     <text class="num" slot="after">{{'+'+item.nums}}</text>
                 </o-tag>
             </block>
@@ -46,9 +46,12 @@
         <text>输入短评</text>
     </view>
     <view class="like-container">
-        <o-like bind:like="onLike" class="like" islike="{{likeStatus}}" count="{{likeCount}}" />
+        <o-like bind:onlike="onLike" class="like" islike="{{likeStatus}}" count="{{likeCount}}" />
     </view>
 </view>
+<!-- 遮罩 -->
+<view class='marsk' wx:if='{{posting}}'></view>
+<!-- 短评 -->
 <view class="posting-container" wx:if="{{posting}}">
     <view class="post-header">
         <text wx:if="{{comments==true}}">仅可点击标签+1</text>
@@ -56,7 +59,7 @@
         <text bind:tap="onCancel" class="cancel">取消</text>
     </view>
     <view class="comment-container">
-        <block wx:for="{{comments}}" wx:key="content">
+        <block wx:for="{{util.limit(comments,4)}}" wx:key="content">
             <o-tag bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
                 <text class="num" slot="after">{{'+'+item.nums}}</text>
             </o-tag>
