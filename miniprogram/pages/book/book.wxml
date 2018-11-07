@@ -1,5 +1,5 @@
 <!--miniprogram/pages/book/book.wxml-->
-<view class="container">
+<view class="container" wx:if='{{!searching}}'>
   <view class='header'>
     <view class='box' bind:tap="onActivateSearch">
       <image src="/images/icon/search.png" />
@@ -18,3 +18,6 @@
   <o-book   book='{{item}}' />
 </view> -->
 <!-- 跟上面效果相同 -->
+
+<!-- search组件：该组件应该和book页面 是互斥关系  -->
+<o-search  v-else='{{searching}}' bind:cancelSearch = 'onCancelSearch' />

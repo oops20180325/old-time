@@ -18,24 +18,51 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //小程序loading
+    wx.showLoading()
+    // question 什么时候结束loading ajax是异步请求的
+    //  解决1. promise 2. onready生命周期中结束 
+    // 串行发送或者并行发送
     console.log(options,options.id)
-    bookApi.getDetail(options.id).then(res=>{
-      console.log(res)
+
+    // bookApi.getDetail(options.id).then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     book: res
+    //   })
+    // })
+    // bookApi.getLikeStatus(options.id).then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     likeStatus: res.like_status,
+    //     likeCount: res.fav_nums
+    //   })
+    // })
+    //  bookApi.getComments(options.id).then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     comments: res.comments
+    //   })
+    // })
+
+    let detail = bookApi.getDetail(options.id)
+    let likeStatus =  bookApi.getLikeStatus(options.id)
+    let comments = bookApi.getComments(options.id)
+    // 上述api方法均返回一个promise实例
+    // 使用promise.all 同时解决并行发送数据与监听请求完成
+    Promise.all([detail, likeStatus, comments]).then((res)=>{
+      // res 为一个数组 里面包含每个子promise refuse返回的数据
+      // 微信 隐藏loading
+      wx.hideLoading();
       this.setData({
-        book:res
+        book: res[0]
       })
-    })
-    bookApi.getLikeStatus(options.id).then(res=>{
-      console.log(res)
       this.setData({
-        likeStatus:res.like_status,
-        likeCount:res.fav_nums
+        likeStatus: res[1].like_status,
+        likeCount: res[1].fav_nums
       })
-    })
-    bookApi.getComments(options.id).then(res=>{
-      console.log(res)
       this.setData({
-        comments:res.comments
+        comments: res[2].comments
       })
     })
   },
