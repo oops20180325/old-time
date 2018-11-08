@@ -1,4 +1,8 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "tag-cmp":"../tag/tag",
+    "book-cmp":"../book/book",
+    "loading-cmp":"../loading/loading"
+  }
 }
