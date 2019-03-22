@@ -38,9 +38,11 @@ Component({
          // 播放音乐(初始化或者继续播放)
 
         console.log(player.src)
+        console.log(player)
         console.log(this.properties.src) 
-        player.src === this.properties.src ? player.play() : player.src = this.properties.src;
-       
+        player.title='sound';
+        player.src === this.properties.src ? player.play() : player.src = this.properties.src; 
+        console.log(player.src)
 
         
       }else{

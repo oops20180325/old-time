@@ -1,5 +1,5 @@
 {
-  "cloud": true,
+  "cloud": false,
   "pages": [
     "pages/classic/classic",
     "pages/book/book",
